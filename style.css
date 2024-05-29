@@ -1,8 +1,8 @@
 body {
     margin: 0;
-    background-color: #ffffff;
+    background-color: #FFFFFF; /* White background */
     font-family: Arial, sans-serif;
-    color: #000000;
+    color: #2C3E50; /* Dark Blue text */
     overflow-x: hidden;
 }
 
@@ -10,6 +10,10 @@ body {
     position: relative;
     width: 100%;
     height: 100vh; /* Ensure the main section takes full viewport height */
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #particleContainer, #textContainer {
@@ -18,12 +22,12 @@ body {
     width: 50%;
     height: 100%;
     overflow: hidden;
- }
+}
 
 #particleContainer {
     left: -20%; /* Set the particle container to the left */
     z-index: 1; /* Particles should stay in the background */
-    background-color: #ffffff; /* Set the background color of the particle container */
+    background-color: rgba(0, 0, 0, 0.8); /* Set a semi-transparent white background to make particles visible */
 }
 
 #textContainer {
@@ -45,7 +49,7 @@ body {
     transform: scale(0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: #ffffff; /* Dark Blue text */
 }
 
 .tagline {
@@ -53,7 +57,7 @@ body {
     opacity: 0;
     transform: scale(0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
-    color: rgb(0, 0, 0);
+    color: #ffffff; /* Dark Blue text */
 }
 
 #sidebar {
@@ -65,7 +69,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     padding: 0px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 2; /* Sidebar stays above other elements */
 }
 
@@ -85,24 +89,24 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: white;
+    color: #FFFFFF; /* White icons */
     font-size: 24px; /* Adjust the font size to make icons larger */
     padding: 10px;
     border-radius: 50%;
-    background-color: #91a8ee;
+    background-color: #0800ff; /* Cyan background */
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .menu-options li a:hover {
     transform: scale(1.1);
-    background-color: #6579d3;
+    background-color: #E74C3C; /* Coral background on hover */
 }
 
 #content {
     position: relative;
     padding: 0px;
     background-color: #f9f9f9;
-    color: #000;
+    color: #2C3E50; /* Dark Blue text */
     z-index: 3; /* Content stays above particles */
     margin-top: 0vh; /* Ensure content starts below the fixed elements */
 }

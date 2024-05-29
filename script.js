@@ -3,7 +3,7 @@ var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHei
 var renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth/1.5, window.innerHeight/1.1);
 document.getElementById("particleContainer").appendChild(renderer.domElement);
-renderer.setClearColor(0xffffff, 1);
+renderer.setClearColor(0x00000, 1);
 
 var particles = createParticles();
 scene.add(particles);
@@ -34,7 +34,7 @@ function createParticles() {
 
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
-    var material = new THREE.PointsMaterial({ color: 0x91a8ee, size: 1.7 });
+    var material = new THREE.PointsMaterial({ color: 0x0800ff, size: 1.7 }); // Cyan particles
     return new THREE.Points(geometry, material);
 }
 
