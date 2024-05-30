@@ -25,9 +25,9 @@ body {
 }
 
 #particleContainer {
-    left: -20%; /* Set the particle container to the left */
+    left: -10%; /* Set the particle container to the left */
     z-index: 1; /* Particles should stay in the background */
-    background-color: rgba(0, 0, 0, 0.8); /* Set a semi-transparent white background to make particles visible */
+    background-color: rgba(0, 0, 0, 0.8); /* Set a semi-transparent background to make particles visible */
 }
 
 #textContainer {
@@ -49,7 +49,7 @@ body {
     transform: scale(0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
     font-weight: bold;
-    color: #ffffff; /* Dark Blue text */
+    color: #ffffff; /* White text */
 }
 
 .tagline {
@@ -57,7 +57,15 @@ body {
     opacity: 0;
     transform: scale(0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
-    color: #ffffff; /* Dark Blue text */
+    color: #ffffff; /* White text */
+}
+
+.profile-pic {
+    width: 150px;
+    height: 200px;
+    border-radius: 50%;
+    margin-top: 20px;
+    border: 10px solid #ffffff; /* Cyan border */
 }
 
 #sidebar {
