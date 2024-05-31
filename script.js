@@ -1,9 +1,10 @@
+// script.js
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 var renderer = new THREE.WebGLRenderer({ alpha: true });
-renderer.setSize(window.innerWidth/1.5, window.innerHeight/1.1);
+renderer.setSize(window.innerWidth / 1.5, window.innerHeight / 1.1);
 document.getElementById("particleContainer").appendChild(renderer.domElement);
-renderer.setClearColor(0x00000, 1);
+renderer.setClearColor(0x000000, 1);
 
 var particles = createParticles();
 scene.add(particles);
@@ -48,29 +49,28 @@ function onmousemove(event) {
 
 function scatterParticles() {
     var positions = particles.geometry.attributes.position.array;
-    var duration = 1;
-    var spread = 500; // Adjust this to change how far the particles scatter
+    var newPositions = [];
 
     for (var i = 0; i < positions.length; i += 3) {
-        var x = (Math.random() - 0.5) * spread;
-        var y = (Math.random() - 0.5) * spread;
-        var z = (Math.random() - 0.5) * spread;
-
-        gsap.to(positions, {
-            duration: duration,
-            [i]: x,
-            [i + 1]: y,
-            [i + 2]: z,
-            ease: "power4.out"
-        });
+        newPositions[i] = positions[i] + (Math.random() - 0.5) * 400; // Scattering range
+        newPositions[i + 1] = positions[i + 1] + (Math.random() - 0.5) * 400;
+        newPositions[i + 2] = positions[i + 2] + (Math.random() - 0.5) * 400;
     }
 
-    particles.geometry.attributes.position.needsUpdate = true;
+    gsap.to(particles.geometry.attributes.position.array, {
+        duration: 2,
+        endArray: newPositions,
+        onUpdate: function () {
+            particles.geometry.attributes.position.needsUpdate = true;
+        }
+    });
 }
 
-renderer.domElement.addEventListener('click', scatterParticles);
-
 animate();
+
+// Change event listener to target the button element
+var button = document.querySelector('.fancy-button');
+button.addEventListener('click', scatterParticles);
 
 // Select the text elements
 var nameText = document.querySelector('.name');
@@ -93,4 +93,17 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebar.classList.remove('show');
         }
     });
+});
+
+var sidebar1 = document.getElementById('sidebar1');
+
+button.addEventListener('click', function () {
+    sidebar1.classList.toggle('sidebar-visible');
+});
+
+// Close sidebar when clicking outside of it
+document.addEventListener('click', function (event) {
+    if (!sidebar1.contains(event.target) && event.target !== button) {
+        sidebar1.classList.remove('sidebar-visible');
+    }
 });
