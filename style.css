@@ -211,3 +211,72 @@ body {
     left: 68%;
     transform: translate(-50%, -50%);
 }
+
+#work-experience-diagram {
+    position: relative;
+    margin-top: 20px;
+    height: 400px; /* Set a fixed height for the diagram container */
+}
+
+.branch {
+    position: absolute; /* Position branches absolutely within the container */
+    width: 200px;
+    left: 50%; /* Center the branches horizontally */
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.branch-label {
+    font-weight: bold;
+    background-color: #0800ff; /* Background color of the label */
+    color: white; /* Text color of the label */
+    padding: 10px 20px;
+    border-radius: 20px; /* Adjust to make the label rounder */
+    z-index: 1;
+    position: relative; /* Set to relative to allow z-index to work */
+}
+
+.branch-dates {
+    background-color: #f9f9f9; /* Background color of the dates */
+    padding: 10px;
+    border-radius: 10px; /* Adjust to make the dates rounder */
+    position: relative;
+    z-index: 1;
+}
+
+.branch p {
+    font-size: 0.9em;
+    line-height: 1.4;
+    margin-top: 10px;
+}
+
+.connector {
+    position: absolute;
+    z-index: 0;
+    width: 2px; /* Adjust thickness of the connector */
+    background-color: #888; /* Color of the connector */
+}
+
+.connector.left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.connector.right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.connector.curve {
+    width: 100px; /* Adjust the width of the curve */
+    height: 200px; /* Adjust the height of the curve */
+    border-radius: 50%; /* Create a circular curve */
+    border: 2px solid #888; /* Border color of the curve */
+    border-top: none; /* Hide top border to make it look like a curve */
+    border-left: none; /* Hide left border to make it look like a curve */
+    transform: rotate(45deg); /* Rotate to create diagonal effect */
+    z-index: -1; /* Behind branches */
+}
+

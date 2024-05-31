@@ -121,3 +121,4 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add event listener to the button
     toggleButton.addEventListener("click", toggleSidebar);
 });
+
