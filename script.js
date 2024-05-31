@@ -107,3 +107,17 @@ document.addEventListener('click', function (event) {
         sidebar1.classList.remove('sidebar-visible');
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Get the button and sidebar elements
+    const toggleButton = document.getElementById("toggle-sidebar");
+    const sidebar1 = document.getElementById("sidebar1");
+
+    // Function to toggle the sidebar visibility
+    function toggleSidebar() {
+        sidebar1.classList.toggle("show");
+    }
+
+    // Add event listener to the button
+    toggleButton.addEventListener("click", toggleSidebar);
+});

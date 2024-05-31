@@ -81,23 +81,6 @@ body {
     z-index: 2; /* Sidebar stays above other elements */
 }
 
-#sidebar1 {
-    position: fixed;
-    top: 10px;
-    left: 50px; /* Adjusted left position */
-    height: 100%;
-    width: 50px;
-    background-color: rgba(0, 0, 0, 0.8); /* Adjusted background color with transparency */
-    transition: transform 0.3s ease;
-    transform: translateX(0); /* Start visible */
-    display: flex;
-    flex-direction: column; /* Make the menu vertical */
-    align-items: flex-start; /* Align items to the start */
-    z-index: 3; /* Increased z-index to place it above the particle system */
-}
-
-
-
 .menu-options {
     list-style-type: none;
     display: flex;
@@ -115,7 +98,7 @@ body {
     justify-content: center;
     text-decoration: none;
     color: #FFFFFF; /* White icons */
-    font-size: 24px; /* Adjust the font size to make icons larger */
+    font-size: 40px; /* Adjust the font size to make icons larger */
     padding: 10px;
     border-radius: 50%;
     background-color: #0800ff; /* Cyan background */
@@ -124,37 +107,69 @@ body {
 
 .menu-options li a:hover {
     transform: scale(1.1);
-    background-color: #000000; /* Coral background on hover */
+    background-color: #E74C3C; /* Coral background on hover */
+}
+
+#sidebar1 {
+    position: fixed;
+    top: 100px;
+    left: 50px;
+    height: 100%;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateX(-150%);
+    display: flex;
+    flex-direction: column; /* Make the menu vertical */
+    align-items: flex-start; /* Align items to the start */
+    z-index: 2;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+}
+
+#sidebar1.show {
+    transform: translateX(0); /* Slide in when shown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* More pronounced shadow when visible */
+}
+
+.hidden {
+    display: none;
 }
 
 .menu-options1 {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    left: 0;
-    margin-top: 100px;
 }
 
 .menu-options1 li {
     margin-bottom: 50px;
+    margin-top: 20px;
 }
 
 .menu-options1 li a {
-    display: inline-block;
-    padding: 10px 10px;
-    background-color: #0800ff; /* Cyan background */
-    color: #fff; /* White text */
+    color: #fff;
     text-decoration: none;
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s, transform 0.3s;
+    padding: 35px 30px; /* Adjust padding for better look */
+    display: block;
+    background-color: #0800ff; /* Initial background color */
+    border-radius: 50%; /* Make the buttons round */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    font-size: 1.1em; /* Slightly larger font */
+    font-weight: bold; /* Bold text */
+    width: 50px; /* Ensure width and height are equal for perfect circle */
+    height: 50px; /* Ensure width and height are equal for perfect circle */
+    display: flex; /* Use flex to center content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
 }
 
 .menu-options1 li a:hover {
-    background-color: #000000; /* Coral background on hover */
-    transform: scale(1.1);
+    background-color: #E74C3C; /* Change background color on hover */
+    transform: scale(1.05); /* Scale effect on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
 }
-
-
 
 #content {
     position: relative;
@@ -192,12 +207,7 @@ body {
     border: none; /* No border */
     cursor: pointer;
     position: absolute;
-    top: 93%;
+    top: 90%;
     left: 68%;
     transform: translate(-50%, -50%);
-    z-index: 2; /* Ensure button stays above particles */
-}
-
-.fancy-button:hover {
-    transform: translate(-50%, -50%) scale(1.05); /* Scale effect on hover */
 }
