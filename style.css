@@ -337,3 +337,102 @@ body {
     height: auto; /* Maintain aspect ratio */
     margin-top: 0px; /* Adjust vertical alignment */
 }
+
+/* Ensure existing code is not changed */
+body {
+    margin: 0;
+    background-color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    color: black;
+    overflow-x: hidden;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    /* Adjusting the sidebar for smaller screens */
+    #sidebar {
+        position: fixed;
+        top: 5px;
+        right: 5px;
+    }
+
+    /* Adjusting the textContainer and overlay for mobile devices */
+    #textContainer {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .overlay {
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .name {
+        font-size: 2.5em;
+    }
+
+    .tagline {
+        font-size: 1.5em;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Adjusting the timeline for smaller screens */
+    .timeline::after {
+        left: 31px;
+    }
+
+    .container {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+
+    .container::before {
+        left: 60px;
+    }
+
+    .right {
+        left: 0%;
+    }
+}
+
+/* For screens wider than 768px */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    #particleContainer, #textContainer {
+        width: 100%;
+    }
+
+    .name {
+        font-size: 3em;
+    }
+
+    .tagline {
+        font-size: 1.8em;
+    }
+
+    .profile-pic {
+        width: 175px;
+        height: 175px;
+    }
+}
+
+/* Extra large screens */
+@media screen and (min-width: 1200px) {
+    .name {
+        font-size: 4.5em;
+    }
+
+    .tagline {
+        font-size: 2.5em;
+    }
+
+    .profile-pic {
+        width: 250px;
+        height: 250px;
+    }
+}
+
