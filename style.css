@@ -436,3 +436,48 @@ body {
     }
 }
 
+@media only screen and (max-width: 768px) {
+    #sidebar {
+      right: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+    }
+  
+    .profile-pic {
+      width: 40vw;
+      height: auto;
+    }
+  
+    .name {
+      font-size: 7vw;
+    }
+  
+    .tagline {
+      font-size: 4vw;
+    }
+  
+    #textContainer {
+      width: 100vw;
+    }
+  
+    #particleContainer {
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+  
+  /* For even smaller devices like mobile phones */
+  @media only screen and (max-width: 480px) {
+    .profile-pic {
+      width: 50vw;
+    }
+  
+    .name {
+      font-size: 8vw;
+    }
+  
+    .tagline {
+      font-size: 5vw;
+    }
+  }
