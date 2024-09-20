@@ -23,41 +23,44 @@
         </div>
     </div>
     <div id="main">
-        <div id="particleContainer">
-            <button class="fancy-button" id="toggle-sidebar" onclick="scatterParticles()">Click here</button>
-            <div id="sidebar1" class="hidden">
-                <ul class="menu-options1">
-                    <li><a href="#work-experience">Work Experience</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#hobbies">Hobbies</a></li>
-                </ul>
+        <div id="landing-page">
+            <div id="particleContainer">
+                <button class="fancy-button" id="toggle-sidebar" onclick="scatterParticles()">Discover More</button>
+                <div id="sidebar1" class="hidden">
+                    <ul class="menu-options1">
+                        <li><a href="#work-experience" class="menu-link">Work Experience</a></li>
+                        <li><a href="#projects" class="menu-link">Projects</a></li>
+                        <li><a href="#skills" class="menu-link">Skills</a></li>
+                        <li><a href="#hobbies" class="menu-link">Hobbies</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div id="textContainer">
-            <div class="overlay">
-                <div class="name">Hello !</div>
-                <div class="tagline">It's me Vani Walvekar</div>
-                <img src="image.jpg" alt="Vani Walvekar" class="profile-pic">
-            </div>
-        </div>
-    </div>
-    <div class="timeline">
-        <div class="container left">
-            <div class="content">
-                <div class="line">
-                    <img src="IBM.png" alt="IBM Icon">
+            <div id="textContainer">
+                <div class="overlay">
+                    <div class="name">Hello !</div>
+                    <div class="tagline">It's me Vani Walvekar</div>
+                    <img src="image.jpg" alt="Vani Walvekar" class="profile-pic">
                 </div>
             </div>
         </div>
-        <div class="container right">
-            <div class="content">
-                <div class="line">
-                    <img src="Mphasis.jpg" alt="Mphasis Icon"> <!-- Manual icon for Mphasis -->
-                </div>
-            </div>
-        </div>
-        <!-- Add more containers as needed -->
+        
+        <!-- Full-page sections -->
+        <section id="work-experience" class="hidden">
+            <h2>Work Experience</h2>
+            <!-- Add your work experience content here -->
+        </section>
+        <section id="projects" class="hidden">
+            <h2>Projects</h2>
+            <!-- Add your projects content here -->
+        </section>
+        <section id="skills" class="hidden">
+            <h2>Skills</h2>
+            <!-- Add your skills content here -->
+        </section>
+        <section id="hobbies" class="hidden">
+            <h2>Hobbies</h2>
+            <!-- Add your hobbies content here -->
+        </section>
     </div>
     <script src="script.js"></script>
 </body>

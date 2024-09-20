@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-color: #FFFFFF;
     font-family: Arial, sans-serif;
-    color: black;
+    color:black;
     overflow-x: hidden;
 }
 
@@ -10,7 +10,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-color: black;
+    background-color:white;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -49,7 +49,7 @@ body {
     transform: scale(0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
     font-weight: bold;
-    color: #ffffff;
+    color: #000000;
 }
 
 .tagline {
@@ -57,7 +57,7 @@ body {
     opacity: 0;
     transform: scale(0.8);
     transition: opacity 0.8s ease, transform 0.8s ease;
-    color: #ffffff;
+    color: #000000;
 }
 
 .profile-pic {
@@ -77,7 +77,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     padding: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: white;
     z-index: 2;
 }
 
@@ -144,14 +144,13 @@ body {
 }
 
 .menu-options1 li a {
-    color: #fff;
+    color: black;
     text-decoration: none;
     padding: 50px 40px;
     display: block;
-    background-color: #0800ff;
-    border-radius: 50%;
+    background-color: transparent;
+    border-radius: 0%;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 1.1em;
     font-weight: bold;
     width: 50px;
@@ -159,18 +158,19 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 30px;
 }
 
 .menu-options1 li a:hover {
-    background-color: #E74C3C;
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background-color:transparent;
+    transform: scale(1.6); /* Increase the scale for a larger effect */
+    transition: transform 0.3s ease; /* Smooth transition */
 }
 
 #content {
     position: relative;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     color: #2C3E50;
     z-index: 3;
     margin-top: 0;
@@ -192,12 +192,13 @@ body {
 
 .fancy-button {
     display: inline-block;
-    padding: 15px 30px;
+    font-family:fantasy;
+    padding: 30px 30px;
     margin-top: 20px;
     background: transparent;
-    color: #fff;
+    color: black;
     text-align: center;
-    text-decoration: none;
+    text-decoration-style:solid;
     font-size: 2.2em;
     font-weight: bold;
     border: none;
@@ -219,7 +220,7 @@ body {
     content: '';
     position: absolute;
     width: 6px;
-    background-color: #000000;
+    background-color: white;
     top: 0;
     bottom: 0;
     left: 50%;
@@ -481,3 +482,16 @@ body {
       font-size: 5vw;
     }
   }
+#-------------------------------------
+.hidden {
+    display: none;
+}
+
+section {
+    width: 100%;
+    height: 100vh; /* Full height for each section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Optional background color */
+}

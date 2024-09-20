@@ -1,9 +1,10 @@
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-var renderer = new THREE.WebGLRenderer({ alpha: true });
+var renderer = new THREE.WebGLRenderer({ alpha: false });
 renderer.setSize(window.innerWidth / 1.5, window.innerHeight / 1.1);
+renderer.setClearColor(0xffffff, 1);
 document.getElementById("particleContainer").appendChild(renderer.domElement);
-renderer.setClearColor(0x000000, 1);
+
 
 var particles = createParticles();
 scene.add(particles);
@@ -129,4 +130,61 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Add event listener to the button
     toggleButton.addEventListener("click", toggleSidebar);
+});
+//------------------------------------------
+document.querySelectorAll('.menu-link').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // Get the target section ID
+        const targetId = this.getAttribute('href');
+        
+        // Hide all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('hidden');
+        });
+
+        // Show the target section
+        const targetSection = document.querySelector(targetId);
+        targetSection.classList.remove('hidden');
+
+        // Scroll to the target section smoothly
+        targetSection.scrollIntoView({
+            behavior: 'smooth'
+        });
+
+        // Hide the landing page
+        document.getElementById('landing-page').classList.add('hidden');
+
+        // Update the browser history
+        history.pushState({ section: targetId }, '', targetId);
+    });
+});
+
+// Handle "Go Back" button
+document.querySelectorAll('.back-button').forEach(button => {
+    button.addEventListener('click', function () {
+        // Go back in the browser history
+        history.back();
+    });
+});
+
+// Handle popstate event to show the correct section when going back
+window.addEventListener('popstate', function (event) {
+    if (event.state) {
+        // Hide all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('hidden');
+        });
+
+        // Show the target section based on history state
+        const targetSection = document.querySelector(event.state.section);
+        targetSection.classList.remove('hidden');
+
+        // Hide the landing page
+        document.getElementById('landing-page').classList.add('hidden');
+    } else {
+        // If no state, show the landing page
+        document.getElementById('landing-page').classList.remove('hidden');
+    }
 });
