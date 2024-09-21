@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     toggleButton.addEventListener("click", toggleSidebar);
 });
 
-// Section navigation and background image management
+// Section navigation
 document.querySelectorAll('.menu-link').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -130,17 +130,10 @@ document.querySelectorAll('.menu-link').forEach(anchor => {
         
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('hidden');
-            section.style.backgroundImage = 'none';
         });
 
         const targetSection = document.querySelector(`#${targetId}`);
         targetSection.classList.remove('hidden');
-
-        if (targetId === 'work-experience') {
-            targetSection.style.backgroundImage = "url('your-background-image.jpg')";
-            targetSection.style.backgroundSize = 'cover';
-            targetSection.style.backgroundPosition = 'center';
-        }
 
         document.getElementById('landing-page').classList.add('hidden');
 
@@ -158,17 +151,10 @@ window.addEventListener('popstate', function (event) {
     if (event.state) {
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('hidden');
-            section.style.backgroundImage = 'none';
         });
 
         const targetSection = document.querySelector(`#${event.state.section}`);
         targetSection.classList.remove('hidden');
-
-        if (event.state.section === 'work-experience') {
-            targetSection.style.backgroundImage = "url('your-background-image.jpg')";
-            targetSection.style.backgroundSize = 'cover';
-            targetSection.style.backgroundPosition = 'center';
-        }
 
         document.getElementById('landing-page').classList.add('hidden');
     } else {
@@ -176,7 +162,6 @@ window.addEventListener('popstate', function (event) {
 
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('hidden');
-            section.style.backgroundImage = 'none';
         });
     }
 });
