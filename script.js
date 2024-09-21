@@ -1,10 +1,10 @@
+// Three.js setup
 var scene = new THREE.Scene();
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 var renderer = new THREE.WebGLRenderer({ alpha: false });
 renderer.setSize(window.innerWidth / 1.5, window.innerHeight / 1.1);
 renderer.setClearColor(0xffffff, 1);
 document.getElementById("particleContainer").appendChild(renderer.domElement);
-
 
 var particles = createParticles();
 scene.add(particles);
@@ -18,7 +18,7 @@ function animate() {
 }
 
 function createParticles() {
-    var distance = Math.min(210, window.innerWidth); // Adjusted distance for better fitting
+    var distance = Math.min(210, window.innerWidth);
     var geometry = new THREE.BufferGeometry();
     var vertices = [];
 
@@ -35,7 +35,7 @@ function createParticles() {
 
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
 
-    var material = new THREE.PointsMaterial({ color: 0x0800ff, size: 1.7 }); // Cyan particles
+    var material = new THREE.PointsMaterial({ color: 0x0800ff, size: 1.7 });
     return new THREE.Points(geometry, material);
 }
 
@@ -52,7 +52,7 @@ function scatterParticles() {
     var newPositions = [];
 
     for (var i = 0; i < positions.length; i += 3) {
-        newPositions[i] = positions[i] + (Math.random() - 0.5) * 400; // Scattering range
+        newPositions[i] = positions[i] + (Math.random() - 0.5) * 400;
         newPositions[i + 1] = positions[i + 1] + (Math.random() - 0.5) * 400;
         newPositions[i + 2] = positions[i + 2] + (Math.random() - 0.5) * 400;
     }
@@ -71,26 +71,22 @@ animate();
 function onWindowResize() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
-  
     renderer.setSize(window.innerWidth, window.innerHeight);
-  }
-  
-  // Ensure the resize event listener is active
-  window.addEventListener('resize', onWindowResize, false);
+}
 
-// Change event listener to target the button element
+window.addEventListener('resize', onWindowResize, false);
+
+// Button and text animations
 var button = document.querySelector('.fancy-button');
 button.addEventListener('click', scatterParticles);
 
-// Select the text elements
 var nameText = document.querySelector('.name');
 var taglineText = document.querySelector('.tagline');
 
-// Animate the text elements with GSAP
 gsap.to(nameText, { opacity: 1, scale: 1, duration: 0.8, delay: 0.5, ease: 'power4.out' });
 gsap.to(taglineText, { opacity: 1, scale: 1, duration: 0.8, delay: 0.7, ease: 'power4.out' });
 
-// Sidebar
+// Sidebar functionality
 document.addEventListener('DOMContentLoaded', function () {
     var sidebar = document.querySelector('.menu-container');
 
@@ -103,88 +99,84 @@ document.addEventListener('DOMContentLoaded', function () {
             sidebar.classList.remove('show');
         }
     });
-});
 
-var sidebar1 = document.getElementById('sidebar1');
+    var sidebar1 = document.getElementById('sidebar1');
 
-button.addEventListener('click', function () {
-    sidebar1.classList.toggle('sidebar-visible');
-});
+    button.addEventListener('click', function () {
+        sidebar1.classList.toggle('sidebar-visible');
+    });
 
-// Close sidebar when clicking outside of it
-document.addEventListener('click', function (event) {
-    if (!sidebar1.contains(event.target) && event.target !== button) {
-        sidebar1.classList.remove('sidebar-visible');
-    }
-});
+    document.addEventListener('click', function (event) {
+        if (!sidebar1.contains(event.target) && event.target !== button) {
+            sidebar1.classList.remove('sidebar-visible');
+        }
+    });
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Get the button and sidebar elements
     const toggleButton = document.getElementById("toggle-sidebar");
-    const sidebar1 = document.getElementById("sidebar1");
 
-    // Function to toggle the sidebar visibility
     function toggleSidebar() {
         sidebar1.classList.toggle("show");
     }
 
-    // Add event listener to the button
     toggleButton.addEventListener("click", toggleSidebar);
 });
-//------------------------------------------
+
+// Section navigation and background image management
 document.querySelectorAll('.menu-link').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         
-        // Get the target section ID
-        const targetId = this.getAttribute('href');
+        const targetId = this.getAttribute('href').substring(1);
         
-        // Hide all sections
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('hidden');
+            section.style.backgroundImage = 'none';
         });
 
-        // Show the target section
-        const targetSection = document.querySelector(targetId);
+        const targetSection = document.querySelector(`#${targetId}`);
         targetSection.classList.remove('hidden');
 
-        // Scroll to the target section smoothly
-        targetSection.scrollIntoView({
-            behavior: 'smooth'
-        });
+        if (targetId === 'work-experience') {
+            targetSection.style.backgroundImage = "url('your-background-image.jpg')";
+            targetSection.style.backgroundSize = 'cover';
+            targetSection.style.backgroundPosition = 'center';
+        }
 
-        // Hide the landing page
         document.getElementById('landing-page').classList.add('hidden');
 
-        // Update the browser history
-        history.pushState({ section: targetId }, '', targetId);
+        history.pushState({ section: targetId }, '', `#${targetId}`);
     });
 });
 
-// Handle "Go Back" button
 document.querySelectorAll('.back-button').forEach(button => {
     button.addEventListener('click', function () {
-        // Go back in the browser history
         history.back();
     });
 });
 
-// Handle popstate event to show the correct section when going back
 window.addEventListener('popstate', function (event) {
     if (event.state) {
-        // Hide all sections
         document.querySelectorAll('section').forEach(section => {
             section.classList.add('hidden');
+            section.style.backgroundImage = 'none';
         });
 
-        // Show the target section based on history state
-        const targetSection = document.querySelector(event.state.section);
+        const targetSection = document.querySelector(`#${event.state.section}`);
         targetSection.classList.remove('hidden');
 
-        // Hide the landing page
+        if (event.state.section === 'work-experience') {
+            targetSection.style.backgroundImage = "url('your-background-image.jpg')";
+            targetSection.style.backgroundSize = 'cover';
+            targetSection.style.backgroundPosition = 'center';
+        }
+
         document.getElementById('landing-page').classList.add('hidden');
     } else {
-        // If no state, show the landing page
         document.getElementById('landing-page').classList.remove('hidden');
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('hidden');
+            section.style.backgroundImage = 'none';
+        });
     }
 });
