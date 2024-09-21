@@ -166,21 +166,6 @@ window.addEventListener('popstate', function (event) {
     }
 });
 
-// Navigate to a new page
-function navigateTo(page) {
-    window.history.pushState({ page: page }, '', page);
-    loadPage(page);
-}
 
-// Load the requested page content
-function loadPage(page) {
-    // Logic to load the page content dynamically
-    // For example, using AJAX to fetch content or updating the DOM directly
-}
 
-// Handle back/forward navigation
-window.onpopstate = function(event) {
-    if (event.state) {
-        loadPage(event.state.page);
-    }
-};
+
