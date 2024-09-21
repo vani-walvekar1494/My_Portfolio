@@ -492,7 +492,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*background-color: #ffffff; Optional background color */
+    background-color: burlywood;
 }
 /* Card Layout Styles */
 .card {
@@ -578,5 +578,73 @@ section {
 @media (max-width: 480px) {
     .card {
         width: 100%; /* Full width on very small screens */
+    }
+}
+
+.home-button {
+    position: fixed; /* Keep it fixed on the screen */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    background-color: transparent;
+    color: rgb(0, 0, 0); /* Text color */
+    padding: 15px 20px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 50px; /* Rounded button */
+    font-size: 50px; /* Font size */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease; /* Smooth transition */
+    cursor: pointer; /* Pointer cursor */
+    font-weight: bold; /* Bold text */
+}
+
+.home-button a {
+    color: rgb(0, 0, 0); /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Hover effects */
+.home-button:hover {
+    background-color: #44e92b; /* Darker shade on hover */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+
+.home-button:active {
+    transform: translateY(1px); /* Slightly push down on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reduce shadow */
+}
+
+.about-content {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-card {
+    background-color: #f9f9f9; /* Light background color */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px;
+    max-width: 800px; /* Set a max width for the card */
+    width: 100%; /* Full width on small screens */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.7s forwards; /* Fade-in effect */
+}
+
+.about-heading {
+    font-size: 2.5em; /* Adjust heading size */
+    margin-bottom: 20px; /* Space between heading and card */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

@@ -137,16 +137,14 @@ document.querySelectorAll('.menu-link').forEach(anchor => {
 
         document.getElementById('landing-page').classList.add('hidden');
 
+        // Store the current section in localStorage
+        localStorage.setItem('activeSection', targetId);
+
         history.pushState({ section: targetId }, '', `#${targetId}`);
     });
 });
 
-document.querySelectorAll('.back-button').forEach(button => {
-    button.addEventListener('click', function () {
-        history.back();
-    });
-});
-
+// Popstate event to handle back/forward navigation
 window.addEventListener('popstate', function (event) {
     if (event.state) {
         document.querySelectorAll('section').forEach(section => {
@@ -158,14 +156,42 @@ window.addEventListener('popstate', function (event) {
 
         document.getElementById('landing-page').classList.add('hidden');
     } else {
-        document.getElementById('landing-page').classList.remove('hidden');
-
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('hidden');
-        });
+        showLandingPage();
     }
 });
 
+// Function to show the landing page
+function showLandingPage() {
+    document.getElementById('landing-page').classList.remove('hidden');
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('hidden');
+    });
+}
 
+// On page load, check localStorage for the active section
+window.addEventListener('DOMContentLoaded', () => {
+    const activeSection = localStorage.getItem('activeSection');
+    if (activeSection) {
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        const targetSection = document.querySelector(`#${activeSection}`);
+        targetSection.classList.remove('hidden');
+        document.getElementById('landing-page').classList.add('hidden');
+    } else {
+        showLandingPage();
+    }
+});
 
+document.getElementById('home-button').addEventListener('click', function () {
+    // Hide all sections
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('hidden');
+    });
+    
+    // Show the landing page
+    document.getElementById('landing-page').classList.remove('hidden');
 
+    // Update the URL without refreshing the page
+    history.pushState({ section: 'landing-page' }, '', '#landing-page');
+});
