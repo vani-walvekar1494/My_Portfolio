@@ -492,7 +492,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: burlywood;
+    background-color: rgb(255, 255, 255);
 }
 /* Card Layout Styles */
 .card {
@@ -502,8 +502,8 @@ section {
     margin: 20px 10px; /* Less horizontal space */
     padding: 30px; /* Increased padding for more vertical space */
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    width: 500px; /* Fixed width for horizontal layout */
-    height: 500px; /* Fixed height for consistent vertical space */
+    width: 600px; /* Fixed width for horizontal layout */
+    height: 600px; /* Fixed height for consistent vertical space */
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.7s forwards; /* Updated fade-in animation */
@@ -614,11 +614,11 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Reduce shadow */
 }
 
-.about-content {
-    padding: 50px;
+.about-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 50px;
 }
 
 .about-card {
